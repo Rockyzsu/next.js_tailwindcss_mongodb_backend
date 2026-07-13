@@ -1,13 +1,10 @@
-1. 使用前后端框架next.js, 客户端渲染，API由服务端提供
+使用next.js 框架，mongodb数据库查询
 
-2. 后端API返回查询数据，有mongodb查询数据返回。
-i. db.getCollection('recommend_list').find({'status':'completed'}).count();
-返回下载好的短剧数量
+部署：
+ docker-compose.yml — 已配置：
+  - 外部端口 8002 映射到容器 3000
+  - MONGODB_URI 和 MONGODB_DB 直接写入 docker-compose.yml（使用你的外部 MongoDB）
 
-ii. 未下载好的数量
-db.getCollection('recommend_list').find({"status": {"$ne": "completed"}})
-
-
-3. 前端页面加载网页时，调用这几个API，显示2个数据，外加一个全部短剧数量
-
-4. .env 文件保存mongodb数据库信息
+  构建和启动命令：
+  docker compose build
+  docker compose up -d
