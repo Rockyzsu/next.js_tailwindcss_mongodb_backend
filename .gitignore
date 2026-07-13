@@ -1,0 +1,11 @@
+.next/
+out/
+node_modules/
+.env
+.env.local
+*.log
+.DS_Store
+
+# Docker build cache
+.docker/
+.claude
