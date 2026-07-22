@@ -7,6 +7,6 @@ services:
       - "8002:3000"
     environment:
       - NODE_ENV=production
-      - MONGODB_URI=
-      - MONGODB_DB=
+      - MONGODB_URI=mongodb://admin:byb202007leave@106.55.167.103:17017/db_test?authSource=admin
+      - MONGODB_DB=hongguo_videos
     restart: unless-stopped

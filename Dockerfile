@@ -1,11 +1,11 @@
 # Stage 1: 安装依赖
-FROM node:20-alpine AS deps
+FROM docker.m.daocloud.io/node:20 AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --only=production
 
 # Stage 2: 构建
-FROM node:20-alpine AS builder
+FROM docker.m.daocloud.io/node:20 AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
@@ -13,7 +13,7 @@ COPY . .
 RUN npm run build
 
 # Stage 3: 生产运行
-FROM node:20-alpine AS runner
+FROM docker.m.daocloud.io/node:20 AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
